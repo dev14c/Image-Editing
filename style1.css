@@ -1,0 +1,313 @@
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'Rubik', sans-serif;
+    }
+    
+    body {
+      background-color: whitesmoke;
+      
+      /* overflow: hidden; */
+    }
+    .toast{
+      position: absolute;
+      right:-600px;
+      padding: 20px 35px 20px 25px;
+      border-radius: 12px;
+      background: white;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      border-left:6px solid #4070f4;
+      overflow: hidden;
+      /* transform: translate(400px); */
+      transition: all 0.5s cubic-bezier(0.68,-0.55,0.265,1.35);
+      
+    }
+    .toast.active2{
+      
+      /* transform: translate(0%); */
+      right:0px;
+    }
+    .toast-content .check{
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      background-color: #4070f4;
+      color: #fff;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+    .toast .toast-content{
+      display: flex;
+      align-items: center;
+    }
+    .message{
+      display: flex;
+      /* align-items: center; */
+      flex-direction: column;
+      margin: 0px 20px;
+
+    }
+    .message .text{
+      font-size: 20px;
+      font-weight: 400;
+      color: #666666;
+    }
+    .message .text.text-1{
+      font-weight: 600;
+      color:#333;
+    }
+    .toast .close{
+      position: absolute;
+      top:10px;
+      right: 15px;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .toast .progress{
+      position: absolute;
+      bottom: 0;
+      left:0;
+      height: 3px;
+      width: 100%;
+      background: #fff;
+    }
+.toast .progress:before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  height: 100%;
+  width: 100%;
+  background-color:#4070f4 ;
+}
+.progress.active2:before{
+  animation: progress 2s linear forwards;
+  
+}
+@keyframes progress {
+  100%{
+    right: 100%;
+  }
+  
+}
+    .wrapper {
+      width: 85vw;
+      overflow: hidden;
+      padding: 50px 30px;
+      min-height: 50vmin;
+      background-color: #c8d3f5;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+      border-radius: 10px;
+      box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+    }
+
+    .editor {
+      min-height: 35vmin;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 20px;
+    }
+
+    .editor label {
+      font-size: 2.8vmin;
+      color: #2a292a;
+      font-weight: 400;
+      margin-top:10px
+    }
+
+    .editor input[type="range"] {
+      display: block;
+     
+      width: 100%;
+      position: relative;
+      margin-top: 5px;
+    }
+    .filter{
+      padding:10px;
+    }
+
+    .flip-buttons {
+      display: flex;
+      flex-direction: column;
+      margin-top: 10px;
+    }
+
+    .flip-buttons .flip-option {
+      margin-top: 10px;
+    }
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: -100px;
+    }
+
+    .result img {
+      display: block;
+      margin: auto;
+      width: 800px;
+      height: 600px;
+      /* border-radius: 50%; */
+      /* box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2); */
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+
+    .result label {
+      display: block;
+      margin: 0 auto;
+      width: 220px;
+      background-color: #025bee;
+      color: white;
+      padding: 16px 0px;
+      text-align: center;
+      border-radius: 55px;
+      font-weight: 400px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .result label:hover {
+      background-color: #033c9c;
+    }
+
+    .image-container {
+      display: none;
+    }
+    
+    .download-button {
+      display: block;
+      position: relative;
+      margin: 0 auto;
+      width: 220px;
+      background-color: #025bee;
+      color: white;
+      padding: 16px 0px;
+      text-align: center;
+      border-radius: 55px;
+      font-weight: 400px;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      overflow: hidden;
+      /* transition: background-color 0.3s ease; */
+    }
+    .download-button.active{
+      
+        height: 20px;
+        width: 500px;
+    }
+   
+    .download-button.active::before{
+        animation: layer 3s ease-in-out forwards;
+    }
+    @keyframes layer {
+        100%{
+            left:0%;
+        }
+        
+    }
+        
+    .download-button .content{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* transition: all 0.2s ease;  */
+         /* transition-delay: 0.2s; means trasniton 2 minute late chlau hoga */
+    }
+
+    
+    
+    .download-button.active .content{
+      transform: translateY(60px);
+    }
+    .download-button::before{
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top:0px;
+        left:-100%;
+        border-radius: 55px;
+        /* background-color: #106afb; */
+        background-color: #d3e8f5;
+
+    }
+   
+    .button-text{
+      font-size:15px;
+      /* border: 10px solid; */
+    }
+
+    /* Animation */
+    
+
+    .wrapper {
+      animation: fadeIn 1s ease;
+    }
+    .save-btn{
+      margin-top:20px;
+      padding-bottom:15px
+      /* font-weight: 400; */
+    }
+    .save{
+      position: absolute;
+      left:450px;
+      width: 220px;
+      background-color: #025bee;
+      color: white;
+      padding: 16px 0px;
+      text-align: center;
+      border-radius: 55px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 400;
+      text-decoration: none;
+      margin-top: 10px;
+      transition: 0.3s;
+      
+    }
+    .save:hover{
+      background-color: #0e4bf1;
+    }
+    .reset-btn{
+      /* margin-top:20px; */
+      padding-bottom:18px
+
+    }
+    .reset{
+      position: absolute;
+      left:200px;
+      width: 220px;
+      background-color: #025bee;
+      color: white;
+      padding: 16px 0px;
+      text-align: center;
+      border-radius: 55px;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: 400;
+      text-decoration: none;
+      /* margin-top: 10px; */
+      transition: 0.3s;
+
+    }
+  
+
